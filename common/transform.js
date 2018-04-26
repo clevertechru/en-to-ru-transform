@@ -60,8 +60,8 @@ var invert = function (obj) {
 var _transform = function (firstLetterAssociations, input, spaceReplacement) {
   var _associations = Object.assign({}, firstLetterAssociations);
 
-  let newStr = '';
-  for (let i = 0; i < input.length; i++) {
+  var newStr = '';
+  for (var i = 0; i < input.length; i++) {
     var isUpperCaseOrWhatever = input[i] === input[i].toUpperCase();
     var strLowerCase = input[i].toLowerCase();
     if (strLowerCase === ' ' && spaceReplacement) {
