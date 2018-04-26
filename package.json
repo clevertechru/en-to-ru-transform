@@ -1,0 +1,27 @@
+{
+  "name": "en-to-ru-transform",
+  "version": "1.0.0",
+  "description": "en-to-ru-transform",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.19.1",
+    "mocha": "^5.1.1",
+    "should": "^13.2.1"
+  },
+  "scripts": {
+    "test": "export NODE_ENV=test && eslint index.js common/*.js test/**/*.js && mocha --recursive --require should --reporter spec --check-leaks --exit",
+    "test-eslint-fix": "export NODE_ENV=test && eslint --fix index.js common/*.js test/**/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clevertechru/en-to-ru-transform.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/clevertechru/en-to-ru-transform/issues"
+  },
+  "homepage": "https://github.com/clevertechru/en-to-ru-transform#readme"
+}
