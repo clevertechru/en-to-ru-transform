@@ -1,7 +1,7 @@
 'use strict';
 
 // transform("йцукен") => qwerty
-var transform =  function (str, spaceReplacement) {
+var transform =  function (str) {
   if (!str) {
     return '';
   }
@@ -42,7 +42,7 @@ var transform =  function (str, spaceReplacement) {
     '`': 'ё',
   }
 
-  return _transform(map[str[0].toLowerCase()] ? map : invert(map), str, spaceReplacement)
+  return _transform(map[str[0].toLowerCase()] ? map : invert(map), str)
 }
 
 var invert = function (obj) {
@@ -57,17 +57,13 @@ var invert = function (obj) {
   return new_obj;
 }
 
-var _transform = function (firstLetterAssociations, input, spaceReplacement) {
+var _transform = function (firstLetterAssociations, input) {
   var _associations = Object.assign({}, firstLetterAssociations);
 
   var newStr = '';
   for (var i = 0; i < input.length; i++) {
     var isUpperCaseOrWhatever = input[i] === input[i].toUpperCase();
     var strLowerCase = input[i].toLowerCase();
-    if (strLowerCase === ' ' && spaceReplacement) {
-      newStr += spaceReplacement;
-      continue;
-    }
     var newLetter = (i === 0 ? firstLetterAssociations : _associations)[strLowerCase];
     if ('undefined' === typeof newLetter) {
       newStr += isUpperCaseOrWhatever ? strLowerCase.toUpperCase() : strLowerCase;
